@@ -15,9 +15,9 @@ class PhoneBook {
 		void		add_cont(void);
 		void		search_cont(void) const;
 		void		show_cont(void) const;
-		std::string	truncate(std::string str) const;
 
 	private:
+		std::string	truncate(std::string str) const;
 		Contact		_list[8];
 };
 

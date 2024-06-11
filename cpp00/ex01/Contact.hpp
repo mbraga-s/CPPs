@@ -12,7 +12,6 @@ class Contact {
 	
 		static int	nbr_contacts;
 		void		add_new(void);
-		std::string	check_nbr(std::string nbr) const;
 		std::string	get_fname(void) const;
 		std::string	get_lname(void) const;
 		std::string	get_nname(void) const;
@@ -20,6 +19,7 @@ class Contact {
 		std::string	get_secret(void) const;
 
 	private:
+		std::string	check_nbr(std::string nbr) const;
 		std::string	_first_name;
 		std::string	_last_name;
 		std::string	_nickname;

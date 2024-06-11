@@ -18,7 +18,7 @@ void	PhoneBook::add_cont(void)
 	Contact new_cont;
 
 	new_cont.add_new();
-	std::cout << new_cont.nbr_contacts << std::endl;
+	// std::cout << new_cont.nbr_contacts << std::endl;
 	if (new_cont.nbr_contacts > 8)
 		_list[(new_cont.nbr_contacts % 8) - 1] = new_cont; 
 	else
