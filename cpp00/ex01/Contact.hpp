@@ -25,7 +25,6 @@ class Contact {
 		std::string	_nickname;
 		std::string	_number;
 		std::string	_secret;
-	
 };
 
 #endif
