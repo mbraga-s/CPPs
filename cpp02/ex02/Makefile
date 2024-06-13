@@ -1,5 +1,5 @@
 
-NAME = second_ocf
+NAME = third_ocf
 
 SRCS = main Fixed
 

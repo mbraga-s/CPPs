@@ -69,3 +69,113 @@ std::ostream &operator<<(std::ostream& src, const Fixed& copy)
 	src << copy.toFloat();
 	return (src);
 }
+
+/* EX02 starts here*/
+
+bool Fixed::operator>(const Fixed& comp)
+{
+	return(this->_fixed_pt > comp.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed& comp)
+{
+	return(this->_fixed_pt < comp.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed& comp)
+{
+	return(this->_fixed_pt >= comp.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed& comp)
+{
+	return(this->_fixed_pt <= comp.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed& comp)
+{
+	return(this->_fixed_pt == comp.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed& comp)
+{
+	return(this->_fixed_pt != comp.getRawBits());
+}
+
+Fixed Fixed::operator+(const Fixed& src)
+{
+	return (Fixed(this->toFloat() + src.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed& src)
+{
+	return (Fixed(this->toFloat() - src.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed& src)
+{
+	return (Fixed(this->toFloat() * src.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed& src)
+{
+	return (Fixed(this->toFloat() / src.toFloat()));
+}
+
+Fixed &Fixed::operator++(void)
+{
+	this->_fixed_pt++;
+	return(*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed old = *this;
+	++(*this);
+	return(old);
+}
+
+Fixed &Fixed::operator--(void)
+{
+	this->_fixed_pt--;
+	return(*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed old = *this;
+	--(*this);
+	return(old);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if(a < b)
+		return (a);
+	return (b);
+}
+
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
+{
+	Fixed	c(a);
+	Fixed	d(b);
+	if(c < d)
+		return (a);
+	return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if(a < b)
+		return (b);
+	return (a);
+}
+
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
+{
+	Fixed	c(a);
+	Fixed	d(b);
+	if(c < d)
+		return (b);
+	return (a);
+}

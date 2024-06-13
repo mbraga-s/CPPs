@@ -18,26 +18,51 @@ void	Contact::add_new(void)
 	std::string	nbr;
 
 	std::cout << "Input the contact's first name:" << std::endl;
-	std::getline(std::cin, this->_first_name);
-	if (std::cin.eof() == 1)
-		return ;
+	while(this->_first_name.empty())
+	{	
+		std::getline(std::cin, this->_first_name);
+		if (std::cin.eof() == 1)
+			exit(0);
+		if (this->_first_name.empty())
+			std::cout << "Field can't be empty. Please retry:" << std::endl;
+	}
 	std::cout << "Input the contact's last name:" << std::endl;
-	std::getline(std::cin, this->_last_name);
-	if (std::cin.eof() == 1)
-		return ;
+	while(this->_last_name.empty())
+	{	
+		std::getline(std::cin, this->_last_name);
+		if (std::cin.eof() == 1)
+			exit(0);
+		if (this->_last_name.empty())
+			std::cout << "Field can't be empty. Please retry:" << std::endl;
+	}
 	std::cout << "Input the contact's nickname:" << std::endl;
-	std::getline(std::cin, this->_nickname);
-	if (std::cin.eof() == 1)
-		return ;
+	while(this->_nickname.empty())
+	{	
+		std::getline(std::cin, this->_nickname);
+		if (std::cin.eof() == 1)
+			exit(0);
+		if (this->_nickname.empty())
+			std::cout << "Field can't be empty. Please retry:" << std::endl;
+	}
 	std::cout << "Input the contact's number:" << std::endl;
-	std::getline(std::cin, nbr);
-	if (std::cin.eof() == 1)
-		return ;
-	this->_number = check_nbr(nbr);
+	while(this->_number.empty())
+	{	
+		std::getline(std::cin, nbr);
+		if (std::cin.eof() == 1)
+			exit(0);
+		this->_number = check_nbr(nbr);
+		if (this->_number.empty())
+			std::cout << "Field can't be empty. Please retry:" << std::endl;
+	}
 	std::cout << "Input the contact's darkest secret:" << std::endl;
-	std::getline(std::cin, this->_secret);
-	if (std::cin.eof() == 1)
-		return ;
+	while(this->_secret.empty())
+	{	
+		std::getline(std::cin, this->_secret);
+		if (std::cin.eof() == 1)
+			exit(0);
+		if (this->_secret.empty())
+			std::cout << "Field can't be empty. Please retry:" << std::endl;
+	}
 }
 
 std::string	Contact::check_nbr(std::string nbr) const
