@@ -4,7 +4,6 @@
 Fixed::Fixed(void): _fixed_pt(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	return;
 }
 
 Fixed::Fixed(const Fixed& copy)
@@ -12,13 +11,11 @@ Fixed::Fixed(const Fixed& copy)
 	std::cout << "Copy constructor called" << std::endl;
 	// this->_fixed_pt = copy._fixed_pt;
 	*this = copy;
-	return;
 }
 
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
-	return;
 }
 
 Fixed &Fixed::operator=(const Fixed& src)
@@ -37,21 +34,18 @@ int	Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	this->_fixed_pt = raw;
-	return;
 }
 
 Fixed::Fixed(const int nbr)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->_fixed_pt = nbr * (1 << this->_frac_bits);
-	return;
 }
 
 Fixed::Fixed(const float nbr)
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->_fixed_pt = roundf(nbr * (1 << this->_frac_bits));
-	return;
 }
 
 float	Fixed::toFloat(void) const
@@ -67,5 +61,5 @@ int		Fixed::toInt(void) const
 std::ostream &operator<<(std::ostream& src, const Fixed& copy)
 {
 	src << copy.toFloat();
-	return (src);
+ 	return (src);
 }

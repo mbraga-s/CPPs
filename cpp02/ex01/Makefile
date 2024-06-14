@@ -3,13 +3,13 @@ NAME = second_ocf
 
 SRCS = main Fixed
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(SRCS:=.o)
-	$(CC) $(CFLAGS) $(SRCS:=.o) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(SRCS:=.o) -o $(NAME)
 	@echo "\e[0;32m Exercise : \e[1;36m$(NAME)\e[0;32m compiled successfully\e[0m"
 
 clean:

@@ -22,7 +22,7 @@ void	Contact::add_new(void)
 	{	
 		std::getline(std::cin, this->_first_name);
 		if (std::cin.eof() == 1)
-			exit(0);
+			return;
 		if (this->_first_name.empty())
 			std::cout << "Field can't be empty. Please retry:" << std::endl;
 	}
@@ -31,7 +31,7 @@ void	Contact::add_new(void)
 	{	
 		std::getline(std::cin, this->_last_name);
 		if (std::cin.eof() == 1)
-			exit(0);
+			return;
 		if (this->_last_name.empty())
 			std::cout << "Field can't be empty. Please retry:" << std::endl;
 	}
@@ -40,7 +40,7 @@ void	Contact::add_new(void)
 	{	
 		std::getline(std::cin, this->_nickname);
 		if (std::cin.eof() == 1)
-			exit(0);
+			return;
 		if (this->_nickname.empty())
 			std::cout << "Field can't be empty. Please retry:" << std::endl;
 	}
@@ -49,7 +49,7 @@ void	Contact::add_new(void)
 	{	
 		std::getline(std::cin, nbr);
 		if (std::cin.eof() == 1)
-			exit(0);
+			return;
 		this->_number = check_nbr(nbr);
 		if (this->_number.empty())
 			std::cout << "Field can't be empty. Please retry:" << std::endl;
@@ -59,7 +59,7 @@ void	Contact::add_new(void)
 	{	
 		std::getline(std::cin, this->_secret);
 		if (std::cin.eof() == 1)
-			exit(0);
+			return;
 		if (this->_secret.empty())
 			std::cout << "Field can't be empty. Please retry:" << std::endl;
 	}
@@ -70,7 +70,7 @@ std::string	Contact::check_nbr(std::string nbr) const
 	int	flag;
 
 	flag = 0;
-	for (int i = 0; i < nbr.length(); i++)
+	for (unsigned long i = 0; i < nbr.length(); i++)
 	{
 		if (!isdigit(nbr[i]))
 			flag = 1;
@@ -81,7 +81,7 @@ std::string	Contact::check_nbr(std::string nbr) const
 		std::cout << "Please retry:" << std::endl;
 		std::getline(std::cin, nbr);
 		if (std::cin.eof() == 1)
-			exit;
+			return(NULL);
 		nbr = check_nbr(nbr);
 	}
 	return(nbr);

@@ -3,12 +3,10 @@
 
 HumanA::HumanA(std::string name, Weapon& weapon) : _ref(weapon), _name(name)
 {
-	return;
 }
 
 HumanA::~HumanA(void)
 {
-	return;
 }
 
 void	HumanA::attack(void)

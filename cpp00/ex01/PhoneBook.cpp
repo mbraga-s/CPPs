@@ -49,13 +49,13 @@ void	PhoneBook::show_cont(void) const
 	std::cout << std::endl << "Choose index to see:" << std::endl;
 	std::getline(std::cin, input);
 	if (std::cin.eof() == 1)
-		exit(0);
+		return;
 	if (input.length() > 1 || !isdigit(input[0]))
 	{
 		std::cout << "Invalid index." << std::endl;
 		return;
 	}
-	index = atoi(input.c_str());
+	index = std::atoi(input.c_str());
 	if (index < 9 && index > 0)
 	{
 		std::cout << "\nFirst Name: " << this->_list[index - 1].get_fname() << std::endl;
@@ -71,6 +71,9 @@ void	PhoneBook::show_cont(void) const
 
 std::string	PhoneBook::truncate(std::string str) const
 {
+	for (unsigned long i = 0; i < str.length(); i++)
+		if (str[i] == 9)
+			str[i] = 32;
 	if (str.length() > 10)
 	{
 		str = str.substr(0, 9);

@@ -44,19 +44,19 @@ void	replacer(char **argv)
 	std::string 	s1;
 	std::string 	s2;
 	std::string		buff;
-	int				pos;
+	int	pos;
 
 	infile = argv[1];
 	s1 = argv[2];
 	s2 = argv[3];
 
-	instream.open(infile);
+	instream.open(infile.c_str());
 	if(!instream.is_open())
 	{
 		std::cout << "Error opening infile." << std::endl;
 		return;
 	}
-	outstream.open(infile + ".replace");
+	outstream.open((infile + ".replace").c_str());
 	if(!outstream.is_open())
 	{
 		std::cout << "Error opening/creating outfile." << std::endl;
@@ -65,12 +65,11 @@ void	replacer(char **argv)
 	while(std::getline(instream, buff))
 	{
 		pos = 0;
-		while (pos != std::string::npos)
+		while (pos >= 0)
 		{
 			pos = buff.find(s1, pos);
 			if (pos >= 0)
 			{
-				std::cout << pos << std::endl;
 				buff.erase(pos, s1.length());
 				buff.insert(pos, s2);
 				pos = pos +  s2.length();
