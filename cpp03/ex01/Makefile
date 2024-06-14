@@ -1,5 +1,5 @@
 
-NAME = open_sesame
+NAME = serena
 
 SRCS = main ClapTrap ScavTrap
 
