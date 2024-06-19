@@ -9,14 +9,13 @@ int	main(void)
 {
 	std::cout << std::endl << "---DOG CLASS---" << std::endl;
 	{
-		Dog	a;
-		Dog b;
-
-		std::cout << std::endl << "Type: " << a.getType() << std::endl;
-		a.setIdea("Food", 2);
-		std::cout << "Though a: " << a.getIdea(2) << std::endl;
+		Dog	*a = new Dog();
+		Dog b = *a;
+		std::cout << std::endl << "Type: " << a->getType() << std::endl;
+		a->setIdea("Food", 2);
+		std::cout << "Though a: " << a->getIdea(2) << std::endl;
 		std::cout << "Though b: " << b.getIdea(2) << std::endl;
-		b = a;
+		delete a;
 		std::cout << "Though b: " << b.getIdea(2) << std::endl;
 		std::cout << std::endl;
 	}

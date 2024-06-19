@@ -10,7 +10,7 @@ class Brain
 		Brain(void);
 		Brain(const Brain& copy);
 		Brain &operator=(const Brain& src);
-		virtual ~Brain(void);
+		~Brain(void);
 
 		void	think(std::string thought, int i);
 		std::string	getThought(int i) const;

@@ -5,7 +5,7 @@ Dog::Dog(void): Animal()
 {
 	this->type = "Dog";
 	this->_cerebrum = new Brain();
-	std::cout << "A wild " << this->type << " dog appeared! (constructor)" <<std::endl;
+	std::cout << "A wild " << this->type << " appeared! (constructor)" <<std::endl;
 }
 
 Dog::Dog(const Dog& copy): Animal(copy)
@@ -18,6 +18,8 @@ Dog::Dog(const Dog& copy): Animal(copy)
 Dog &Dog::operator=(const Dog& src)
 {
 	this->type = src.type;
+	if(!this->_cerebrum)
+		this->_cerebrum = new Brain();
 	*this->_cerebrum = *src._cerebrum;
 	std::cout << this->type << " used Transform! " << this->type << " transformed into " << this->type;
 	std::cout << "! (copy assignment operator called)" << std::endl;

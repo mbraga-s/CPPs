@@ -49,3 +49,4 @@ int	main(void)
 		delete array[i];
 	}
 	return (0);
+}

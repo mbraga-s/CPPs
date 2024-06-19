@@ -34,5 +34,6 @@ void	Brain::think(std::string thought, int i)
 }
 std::string	Brain::getThought(int i) const
 {
+	// std::cout << &(this->_ideas[i]) <<std::endl;
 	return(this->_ideas[i]);
 }

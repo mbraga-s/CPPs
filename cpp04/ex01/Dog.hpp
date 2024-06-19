@@ -12,7 +12,7 @@ class Dog: public Animal
 		Dog(void);
 		Dog(const Dog& copy);
 		Dog &operator=(const Dog& src);
-		virtual ~Dog(void);
+		~Dog(void);
 
 		virtual void makeSound() const;
 		void	setIdea(std::string idea, int i);

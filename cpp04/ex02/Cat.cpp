@@ -17,6 +17,8 @@ Cat::Cat(const Cat& copy): AAnimal(copy)
 Cat &Cat::operator=(const Cat& src)
 {
 	this->type = src.type;
+	if(!this->_cerebrum)
+		this->_cerebrum = new Brain();
 	*this->_cerebrum = *src._cerebrum;
 	std::cout << "The " << this->type << " has no individuality and copied the " << src.type << ". (copy assignment operator)" << std::endl;
 	return(*this);

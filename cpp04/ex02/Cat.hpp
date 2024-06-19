@@ -12,7 +12,7 @@ class Cat: public AAnimal
 		Cat(void);
 		Cat(const Cat& copy);
 		Cat &operator=(const Cat& src);
-		virtual ~Cat(void);
+		~Cat(void);
 
 		virtual void makeSound(void) const;
 		void	setIdea(std::string idea, int i);
