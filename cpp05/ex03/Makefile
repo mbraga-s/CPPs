@@ -1,5 +1,5 @@
 
-NAME = form_28B
+NAME = interns
 
 SRCS = main 
 

@@ -9,9 +9,9 @@ class BitcoinExchange
 {
 	public:
 		BitcoinExchange(void);
-		BitcoinExchange(const BitcoinExchange& copy);
+		BitcoinExchange(const BitcoinExchange &copy);
 		~BitcoinExchange(void);
-		BitcoinExchange &operator=(const BitcoinExchange& src);
+		BitcoinExchange &operator=(const BitcoinExchange &src);
 
 		template <typename T>
 		T getValue(std::string date);
