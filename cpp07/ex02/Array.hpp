@@ -6,28 +6,36 @@
 #include <iostream>
 
 template <typename T>
-class Array {
+class Array 
+{
 	public:
 		Array(void)
 		{
 			this->_array = new T[0];
 			this->_size = 0;
 		}
+		
 		Array(unsigned int n)
 		{
 			this->_array = new T[n];
 			this->_size = n;
 		}
+
 		~Array(void)
 		{
 			delete [] this->_array;
 		}
-		Array(const Array& copy)
+
+		Array(const Array &copy)
 		{
-			if (this != copy)
-				*this = copy;
+			this->_size = copy._size;
+			this->_array = new T[_size];
+			for (unsigned int i = 0; i < _size; i++)
+				this->_array[i] = copy._array[i];
+
 		}
-		Array &operator=(const Array& src)
+
+		Array &operator=(const Array &src)
 		{
 			if (this != &src)
 			{
