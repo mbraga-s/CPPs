@@ -18,6 +18,7 @@ Dog::Dog(const Dog& copy): AAnimal(copy)
 Dog &Dog::operator=(const Dog& src)
 {
 	this->type = src.type;
+	this->_cerebrum = NULL;
 	if(!this->_cerebrum)
 		this->_cerebrum = new Brain();
 	*this->_cerebrum = *src._cerebrum;

@@ -17,6 +17,7 @@ Cat::Cat(const Cat& copy): AAnimal(copy)
 Cat &Cat::operator=(const Cat& src)
 {
 	this->type = src.type;
+	this->_cerebrum = NULL;
 	if(!this->_cerebrum)
 		this->_cerebrum = new Brain();
 	*this->_cerebrum = *src._cerebrum;
