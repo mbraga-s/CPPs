@@ -71,6 +71,29 @@ int get_type(const std::string &str)
 		return (ERROR);
 
 }
+void	is_double(const std::string &str)
+{
+	float i = std::atof(str.c_str());
+	if (std::isprint(static_cast<char>(i)))
+		std::cout << "char: \'" << static_cast<char>(i) << "\'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << static_cast<int>(i) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << i << std::endl;
+}
+
+void	is_float(const std::string &str)
+{
+	float i = std::atof(str.c_str());
+	if (std::isprint(static_cast<char>(i)))
+		std::cout << "char: \'" << static_cast<char>(i) << "\'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << static_cast<int>(i) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << i << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+}
 
 void	is_int(const std::string &str)
 {
@@ -97,8 +120,8 @@ void	is_char(const std::string &str)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
-	std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(str[0]) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(str[0]) << std::endl;
 }
 
 void is_inf(const std::string &str) 
@@ -137,10 +160,10 @@ void ScalarConverter::convert(const std::string &str)
 		is_int(str);
 		break;
 	case FLOAT:
-		std::cout << "FLOAT" << std::endl;
+		is_float(str);
 		break;
 	case DOUBLE:
-		std::cout << "DOUBLE" << std::endl;
+		is_double(str);
 		break;
 	case INF:
 		is_inf(str);
