@@ -1,7 +1,7 @@
 
-NAME = span
+NAME = mutant
 
-SRCS = main Span
+SRCS = main
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
