@@ -3,6 +3,8 @@
 # define BITCOIN_CPP
 
 # include <iostream>
+# include <exception>
+# include <fstream>
 # include <map>
 
 class BitcoinExchange
@@ -13,11 +15,19 @@ class BitcoinExchange
 		~BitcoinExchange(void);
 		BitcoinExchange &operator=(const BitcoinExchange &src);
 
-		template <typename T>
-		T getValue(std::string date);
+		void init_data(std::string path);
 
-		template <typename T>
-		std::string getDate(T);
+        class FileErrorException : public std::exception
+        {
+            public:
+                const char *what(void) const throw();
+        };
+
+        class DataErrorException : public std::exception
+        {
+            public:
+                const char *what(void) const throw();
+        };
 
 	private:
 		std::map<std::string, int> _database;
