@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	std::ifstream instream(argv[1]);
 	if (!instream.is_open())
 	{
-		std::cout << "Error opening file" << std::endl;
+		std::cout << "Error: Unable to open requested file." << std::endl;
 		return (0);
 	}
 
@@ -20,10 +20,7 @@ int main(int argc, char **argv)
 	try
 	{
 		bt_ex.init_data("data.csv");
-		// while (std::getline(file, line))
-		// {
-			// bt_ex.printEntryValue(line);
-		// }
+		bt_ex.parse_file(instream);
 	}
 	catch (std::exception & e)
 	{

@@ -3,8 +3,10 @@
 # define BITCOIN_CPP
 
 # include <iostream>
+# include <cstdlib>
 # include <exception>
 # include <fstream>
+# include <sstream>
 # include <map>
 
 class BitcoinExchange
@@ -16,21 +18,25 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &src);
 
 		void init_data(std::string path);
+		void parse_file(std::ifstream &instream);
 
-        class FileErrorException : public std::exception
-        {
-            public:
-                const char *what(void) const throw();
-        };
+		class FileErrorException : public std::exception
+		{
+			public:
+				const char *what(void) const throw();
+		};
 
-        class DataErrorException : public std::exception
-        {
-            public:
-                const char *what(void) const throw();
-        };
+		class DataErrorException : public std::exception
+		{
+			public:
+				const char *what(void) const throw();
+		};
 
 	private:
-		std::map<std::string, int> _database;
+		std::map<std::string, float> _database;
+		int valid_date(std::string date);
+		int valid_number(std::string value);
+		std::map<std::string, float>::iterator get_closest(std::string date);
 };
 
 #endif
