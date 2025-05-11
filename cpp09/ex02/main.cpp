@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	std::cout << "After: ";
 	pm.print_vector();
 	double time = (static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000);
-	std::cout << "Time to process a range of " << pm.s_vector.size() << " elements with std::vector: " << time << " seconds" << std::endl;
+	std::cout << "Time to process a range of " << pm.s_vector.size() << " elements with std::vector: " << time << " us" << std::endl;
 
 	start = clock();
 	if(pm.add_to_list(argc, argv))
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	// std::cout << "After (list): ";
 	// pm.print_list();
 	time = (static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000);
-	std::cout << "Time to process a range of " << pm.s_list.size() << " elements with std::list: " << time << " seconds" << std::endl;
+	std::cout << "Time to process a range of " << pm.s_list.size() << " elements with std::list: " << time << " us" << std::endl;
 
 	return (0);
 }
